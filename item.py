@@ -83,3 +83,22 @@ class Item:
     # generic way to access to the name of the class from the instance is using the magic method self.__class__.__name__
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}('{self.name}', {self.__price}, {self.quantity})"
+    
+    # Abstraction
+    def __connect(self, smtp_server, smtp_port):
+        pass
+    
+    def __email_body(self):
+        return f"""
+        Hello {self.__name}.
+        We have {self.quantity} times
+        Best Regards, OOPBecklin
+        """
+        
+    def __send(self):
+        pass
+    
+    def send_email(self):
+        self.__connect()
+        self.__email_body()
+        self.__send()
